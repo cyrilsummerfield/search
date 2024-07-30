@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Septillion Search</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            background-image: url('https://thehill.com/wp-content/uploads/sites/2/2022/08/CA_space_08032022istock.jpg?strip=1');
+            background-size: cover;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            text-decoration: none;
+            font-size: 32px;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        input {
+            width: 900px;
+            height: 40px;
+            border-radius: 20px;
+            font-size: 30px;
+            padding: 0 10px;
+        }
+        h1 {
+            color: white;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Septillion Search</h1>
+        <div class="input-container">
+            <input type="text" id="queryInput" placeholder="Search for anything your heart (or brain?) desires...">
+            <a href="#" id="searchLink" target="_blank">🔎</a>
+        </div>
+    </div>
+
+    <script>
+        function updateSearchLink() {
+            const query = document.getElementById('queryInput').value;
+            const formattedQuery = query.split(' ').join('+');
+            const searchLink = `https://www.oceanhero.today/web?q=${formattedQuery}`;
+            document.getElementById('searchLink').href = searchLink;
+        }
+
+        document.getElementById('queryInput').addEventListener('input', updateSearchLink);
+        document.getElementById('queryInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                updateSearchLink();
+                document.getElementById('searchLink').click();
+            }
+        });
+    </script>
+</body>
+</html>
